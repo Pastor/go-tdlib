@@ -28,7 +28,11 @@ func main() {
 	})
 
 	for {
-		currentState, _ := client.Authorize()
+		currentState, err := client.Authorize()
+		if currentState == nil {
+			fmt.Printf("State was nil. Error: %v\n", err)
+			break
+		}
 		if currentState.GetAuthorizationStateEnum() == tdlib.AuthorizationStateWaitPhoneNumberType {
 			fmt.Print("Enter phone: ")
 			var number string
