@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/Arman92/go-tdlib"
+	"github.com/Pastor/go-tdlib"
 )
 
 func main() {
@@ -12,16 +12,16 @@ func main() {
 
 	// Create new instance of client
 	client := tdlib.NewClient(tdlib.Config{
-		APIID:               "187786",
-		APIHash:             "e782045df67ba48e441ccb105da8fc85",
-		SystemLanguageCode:  "en",
-		DeviceModel:         "Server",
+		APIID:               "1290818",
+		APIHash:             "7f66108763da8ccbd6c7207ecaad3e7a",
+		SystemLanguageCode:  "ru",
+		DeviceModel:         "Mobile.Test.Device",
 		SystemVersion:       "1.0.0",
 		ApplicationVersion:  "1.0.0",
 		UseMessageDatabase:  true,
 		UseFileDatabase:     true,
 		UseChatInfoDatabase: true,
-		UseTestDataCenter:   false,
+		UseTestDataCenter:   true,
 		DatabaseDirectory:   "./tdlib-db",
 		FileDirectory:       "./tdlib-files",
 		IgnoreFileNames:     false,
