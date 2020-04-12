@@ -15,11 +15,12 @@ func (client *Client) GetAuthorizationState() (AuthorizationState, error) {
 		return nil, err
 	}
 
-	if result.Data["@type"].(string) == "error" {
+	resultType := result.Data["@type"].(string)
+	if resultType == "error" {
 		return nil, fmt.Errorf("error! code: %d msg: %s", result.Data["code"], result.Data["message"])
 	}
 
-	switch AuthorizationStateEnum(result.Data["@type"].(string)) {
+	switch AuthorizationStateEnum(resultType) {
 
 	case AuthorizationStateWaitTdlibParametersType:
 		var authorizationState AuthorizationStateWaitTdlibParameters
@@ -67,7 +68,7 @@ func (client *Client) GetAuthorizationState() (AuthorizationState, error) {
 		return &authorizationState, err
 
 	default:
-		return nil, fmt.Errorf("Invalid type")
+		return nil, fmt.Errorf("Invalid type: %v", resultType)
 	}
 }
 

@@ -56,6 +56,8 @@ func main() {
 		} else if currentState.GetAuthorizationStateEnum() == tdlib.AuthorizationStateReadyType {
 			fmt.Println("Authorization Ready! Let's rock")
 			break
+		} else {
+			fmt.Println("State " + currentState.GetAuthorizationStateEnum())
 		}
 	}
 
